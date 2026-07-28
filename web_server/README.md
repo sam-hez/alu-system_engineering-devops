@@ -33,3 +33,10 @@ The Nginx `permanent` rewrite flag returns HTTP status 301.
 homepage and permanent redirect from the earlier tasks, then installs a
 custom error page containing `Ceci n'est pas une page`. Missing
 resources return that content with HTTP status 404.
+
+## Task 5
+
+`5-design_a_beautiful_404_page.html` is a responsive, accessible custom
+error page built with self-contained HTML and CSS. It preserves the
+required `Ceci n'est pas une page` text and links visitors back to the
+website root.
