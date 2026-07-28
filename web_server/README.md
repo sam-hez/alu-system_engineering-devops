@@ -20,3 +20,9 @@ restart Nginx without `systemctl`.
 `2-setup_a_domain_name` records the root domain `samhez.tech`. Its DNS
 zone must contain an A record that resolves the root domain to the
 web-01 IPv4 address.
+
+## Task 3
+
+`3-redirection` installs Nginx, creates the required homepage, and adds
+a permanent redirect from `/redirect_me` to the specified YouTube URL.
+The Nginx `permanent` rewrite flag returns HTTP status 301.
