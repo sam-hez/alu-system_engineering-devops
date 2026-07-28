@@ -26,3 +26,10 @@ web-01 IPv4 address.
 `3-redirection` installs Nginx, creates the required homepage, and adds
 a permanent redirect from `/redirect_me` to the specified YouTube URL.
 The Nginx `permanent` rewrite flag returns HTTP status 301.
+
+## Task 4
+
+`4-not_found_page_404` configures a fresh Nginx server with the
+homepage and permanent redirect from the earlier tasks, then installs a
+custom error page containing `Ceci n'est pas une page`. Missing
+resources return that content with HTTP status 404.

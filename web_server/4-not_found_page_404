@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Installs Nginx and configures the homepage, redirect, and custom 404 page.
+apt-get update
+apt-get install -y nginx
+printf '%s\n' 'Holberton School for the win!' > /var/www/html/index.html
+printf '%s\n' "Ceci n'est pas une page" > /var/www/html/404.html
+
+if ! grep -q 'location /redirect_me' /etc/nginx/sites-available/default; then
+    sed -i 's|^[[:space:]]*location / {|        location /redirect_me {\n            return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n        }\n\n        location / {|' /etc/nginx/sites-available/default
+fi
+
+if ! grep -q 'error_page 404 /404.html;' /etc/nginx/sites-available/default; then
+    sed -i 's|^[[:space:]]*location / {|        error_page 404 /404.html;\n\n        location / {|' /etc/nginx/sites-available/default
+fi
+
+nginx -t
+service nginx restart
