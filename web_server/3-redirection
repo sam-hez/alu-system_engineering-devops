@@ -3,6 +3,8 @@
 apt-get update
 apt-get install -y nginx
 printf '%s\n' 'Holberton School for the win!' > /var/www/html/index.html
-sed -i '/server_name _;/a \        rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+if ! grep -q 'location /redirect_me' /etc/nginx/sites-available/default; then
+    sed -i 's|^[[:space:]]*location / {|        location /redirect_me {\n            return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n        }\n\n        location / {|' /etc/nginx/sites-available/default
+fi
 nginx -t
 service nginx restart
