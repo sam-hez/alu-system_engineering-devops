@@ -14,3 +14,9 @@ directory using SCP and a specified SSH private key.
 non-interactively, and configures the default page to contain
 `Holberton School for the win!`. It uses the `service` command to
 restart Nginx without `systemctl`.
+
+## Task 2
+
+`2-setup_a_domain_name` records the root domain `samhez.tech`. Its DNS
+zone must contain an A record that resolves the root domain to the
+web-01 IPv4 address.
